@@ -34,6 +34,8 @@ twitter: @chalkless
 - [バイオインフォマティクス人材育成カリキュラム（次世代シークエンサ）速習コース](http://bit.ly/ngs2014) （NBDC＋東大アグリバイオ）… 2週間カンヅメにして、Linuxの使い方から実際の解析まで。統合TVでも収載
 
 
+
+
 ## 次世代シーケンサ（とそのデータ）基礎知識
 - 言葉
   - 次世代シーケンサ
@@ -250,6 +252,16 @@ ABI PRISM&#174; 3100-Avant Genetic Analyzerより
 - [登録サイト D-way](https://trace.ddbj.nig.ac.jp/D-way/)
 - [登録マニュアル by DDBJ](http://trace.ddbj.nig.ac.jp/dra/submission.shtml)
 - [チュートリアルムービー](http://trace.ddbj.nig.ac.jp/dra/index.shtml)
+
+
+
+
+
+# メモ
+- 必要なスペック
+- GEOなどの遺伝子発現DBについてもふれておくか
+
+
 
 
 ----
