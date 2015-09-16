@@ -44,8 +44,9 @@ twitter: @chalkless
   - New-generation Sequencing (NGS)
   - Next-generation Sequiencing (NGS)
   - 他にmassively parallel DNA sequencing とか...
-  - 最近は、 High-throughput DNA sequencing (technology) をよく使う印象（略語はNGS）
-
+  - → だんだん「新型」でも「次世代」でもなくなっていく。。。
+- → 最近は、 High-throughput DNA sequencing (technology) をよく使う印象（略語はNGSのまま）
+`例：High-throughput sequencing technology, also called Next-generation sequencing (NGS), ...`
 
 ## 何が新型／次世代なのか?
 - 90年代
@@ -66,15 +67,17 @@ ABI PRISM&#174; 3100-Avant Genetic Analyzerより
 [![](http://www.hssnet.co.jp/images/2/2_3_10_3_sample05.gif)]()
 [次世代シーケンス解析サービス：概要・原理 | 北海道システム・サイエンス株式会社](http://www.hssnet.co.jp/2/2_3_10_1.html)より
   - ようするに顕微鏡＋インターバル撮影／タイムラプス撮影
-    -インターバル撮影／タイムラプス撮影： http://www.youtube.com/watch?v=1Az1YX3GgDw
+    - インターバル撮影／タイムラプス撮影： http://www.youtube.com/watch?v=1Az1YX3GgDw
   - 超並列
   - どんなの?
     - Illumina HiSeq  
 [![](http://g86.dbcls.jp/~togoriv/wp-content/uploads/2011/05/genomesequencer4_sm.png)]()
     - Illumina MiSeq  
 [![](http://g86.dbcls.jp/~togoriv/wp-content/uploads/2013/10/MiSeq-345x345.png)]()
-    - Ion Torrent
     - PacBio
+[![](http://g86.dbcls.jp/~togoriv/wp-content/uploads/2015/02/pacbio_400.png)]()
+    - Ion Torrent
+
     - Togo picture gallery ( http://g86.dbcls.jp/~togoriv/ ) より
 [![](https://licensebuttons.net/l/by/2.1/jp/88x31.png)]()
 &#169; 2011 DBCLS Licensed under CC 表示 2.1 日本
@@ -109,7 +112,7 @@ ABI PRISM&#174; 3100-Avant Genetic Analyzerより
   - DDBJ（日）: [DRA](http://trace.ddbj.nig.ac.jp/dra/index.shtml) (DDBJ Sequnece Read Archive)
   - 3局でデータの交換をしている
     - DDBJを見に行ったとして、入っているのは日本だけ、ということはない、ということです。
-    - 個人情報にからむものは、実際の配列データはしかるべきところにしかない。本日最後のセッション参照。
+    - 個人情報にからむものは、実際の配列データはしかるべきところにしかない。（日本だとJGA。これの前のセクション参照）
 
 ### NCBI SRAやめます事件(11/2/16 現地時間)
 - [NCBI To Discontinue Sequence Read Archive and Peptidome](http://www.nlm.nih.gov/pubs/techbull/jf11/jf11_ncbi_reprint_sra.html)
@@ -186,7 +189,6 @@ ABI PRISM&#174; 3100-Avant Genetic Analyzerより
 ### 概要
 [![](http://motdb.dbcls.jp/?plugin=ref&page=AJACS48%2Fnakazato&src=NGSflow.png)]()
 
-#ref(NGSflow.png);
 
 ### Quality Control (QC)
 - 主にFastQCといったソフトが使われます http://www.bioinformatics.babraham.ac.uk/projects/fastqc/
@@ -214,7 +216,8 @@ ABI PRISM&#174; 3100-Avant Genetic Analyzerより
 
 ### [DDBJ Read Annotation Pipeline](http://p.ddbj.nig.ac.jp/)の使い方
 
-このあとのコマでやります。
+- 普通はコンピューターに専門のソフトをインストールし、そこでコマンド（呪文）を書いて計算するが、それをブラウザからできてしまうというシステム
+- → 参考：AJACS御茶ノ水[「DDBJ Pipelineを用いたDNA多型注釈解析の実習」](https://github.com/AJACS-training/AJACS53/tree/master/mochizuki)
 
 
 ### 解析その2（ChIP-Seq、転写因子解析）
@@ -226,7 +229,7 @@ ABI PRISM&#174; 3100-Avant Genetic Analyzerより
 - 高次解析に進みます
   - 今回は時間がないと思うので、二階堂さんがAJACSで話した内容の統合TVを参考にしてください： http://togotv.dbcls.jp/20120926.html#p01
 
-### 解析その3（SNV/Indel解析） [#g52026e8]
+### 解析その3（SNV/Indel解析）
 - SNV: single nucleotide variation
 - その1で書いたマッピングするところまでは基本的に発現解析と同じです（FASTQ → SAM → BAM）
 - samtools を用いる場合
