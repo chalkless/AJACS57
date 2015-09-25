@@ -236,10 +236,9 @@ ABI PRISM&#174; 3100-Avant Genetic Analyzerより
 - その1で書いたマッピングするところまでは発現解析と同じです（FASTQ → SAM → BAM）
 - binding site予測 ... macs2 などを用いる
 
-    
-    samtools sort   oct4.bam oct4.sort    ← 下準備：BAMファイルのソート
-    samtools index oct4.sort.bam           ← 下準備：インデックス作成
-    macs2 -t Oct4.bowtie.sort.rmRepeat.bam -c GFP.bowtie.sort.rmRepeat.bam -f BAM -g mm -n Oct4 -B -q 0.01
+    `samtools sort oct4.bam oct4.sort`    ← 下準備：BAMファイルのソート
+    `samtools index oct4.sort.bam`           ← 下準備：インデックス作成
+    `macs2 -t Oct4.bowtie.sort.rmRepeat.bam -c GFP.bowtie.sort.rmRepeat.bam -f BAM -g mm -n Oct4 -B -q 0.01`
 
 - 高次解析に進みます
   - 今回は時間がないと思うので、二階堂さんがAJACSで話した内容の統合TVを参考にしてください： http://togotv.dbcls.jp/20120926.html#p01
@@ -249,7 +248,9 @@ ABI PRISM&#174; 3100-Avant Genetic Analyzerより
 - その1で書いたマッピングするところまでは基本的に発現解析と同じです（FASTQ → SAM → BAM）
 - samtools を用いる場合
   - bwaでマッピング、samtoolsでSNP callという流れは割とみながやっている手法です
+
   `samtools mpileup -Bugf in_genome.fasta in_sorted.bam | ./bcftools view -bvcg - > out_raw.vcf`
+
   - 参考：http://ameblo.jp/drosk/entry-11222753481.html
 - GATKを用いる場合
   - GATKはSNP解析、変異解析に特化したソフト
