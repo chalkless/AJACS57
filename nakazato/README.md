@@ -236,8 +236,8 @@ ABI PRISM&#174; 3100-Avant Genetic Analyzerより
 - その1で書いたマッピングするところまでは発現解析と同じです（FASTQ → SAM → BAM）
 - binding site予測 ... macs2 などを用いる
 
-    `samtools sort oct4.bam oct4.sort`    ← 下準備：BAMファイルのソート
-    `samtools index oct4.sort.bam`           ← 下準備：インデックス作成
+    `samtools sort oct4.bam oct4.sort`    ← 下準備：BAMファイルのソート  
+    `samtools index oct4.sort.bam`           ← 下準備：インデックス作成  
     `macs2 -t Oct4.bowtie.sort.rmRepeat.bam -c GFP.bowtie.sort.rmRepeat.bam -f BAM -g mm -n Oct4 -B -q 0.01`
 
 - 高次解析に進みます
