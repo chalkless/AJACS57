@@ -21,17 +21,19 @@ twitter: @chalkless
 - 今回（次のセクションも含めて）触れられない部分については以下を参照ください。
 
 ### 参考
-- 見直すこと！
-- [(Rで)塩基配列解析（主に次世代シーケンサーのデータ）](http://www.iu.a.u-tokyo.ac.jp/~kadota/r_seq.html) （門田幸二さん：東京大学 大学院農学生命科学研究科 アグリバイオインフォマティクス教育研究ユニット）
-- [お家でできるMac Bookでやる次世代シーケンスデータ解析](http://www.ipad-zine.com/b/1520) （PDFへのリンク）（緒方法親さん：東京農工大学 応用昆虫学研究室（当時））
-- 統合TV：[R+Bioconductorを使ったNGS解析1](http://togotv.dbcls.jp/20120925.html#p01)（二階堂愛さん：理化学研究所 発生・再生科学総合研究センター（当時））
-- 統合TV：[R+Bioconductorを使ったNGS解析2](http://togotv.dbcls.jp/20120926.html#p01)（二階堂愛さん：理化学研究所 発生・再生科学総合研究センター（当時））
-- 統合TV：[Avadis NGS の使い方～導入編～](http://togotv.dbcls.jp/20110803.html#p01) … 商用ソフト
-- 統合TV：[Avadis NGS の使い方～RNA-seq編～](http://togotv.dbcls.jp/20111124.html#p01) … 商用ソフト
-- 統合TV：[CLC Workbench シリーズの使い方～導入方法編～](http://togotv.dbcls.jp/20110528.html#p01) … 別の商用ソフト
-- （参考）統合TV：[[CLC Workbench シリーズの使い方 ～基本操作編～](http://togotv.dbcls.jp/20110627.html#p01) … 別の商用ソフト
-- 統合TV：[CLC Genomics Workbench でショートリードのマッピングを行う](http://togotv.dbcls.jp/20110628.html#p01) … 別の商用ソフト
-- [バイオインフォマティクス人材育成カリキュラム（次世代シークエンサ）速習コース](http://bit.ly/ngs2014) （NBDC＋東大アグリバイオ）… 2週間カンヅメにして、Linuxの使い方から実際の解析まで。統合TVでも収載
+- 書籍
+  - [次世代シークエンス解析スタンダード NGSのポテンシャルを活かしきるWET&DRY](https://www.yodosha.co.jp/jikkenigaku/book/9784758101912/) … どうやって実験をデザインし実行するか? 解析にも触れる
+  - [次世代シークエンサーDRY解析教本](http://gakken-mesh.jp/book/detail/9784780909203.html)（近日発売）… データをとったあとの解析の解説書
+- サイト
+  - [(Rで)塩基配列解析（主に次世代シーケンサーのデータ）](http://www.iu.a.u-tokyo.ac.jp/~kadota/r_seq.html) （門田幸二さん：東京大学 大学院農学生命科学研究科 アグリバイオインフォマティクス教育研究ユニット）
+  - 統合TV：[R+Bioconductorを使ったNGS解析1](http://togotv.dbcls.jp/20120925.html#p01)（二階堂愛さん：理化学研究所 発生・再生科学総合研究センター（当時））
+  - 統合TV：[R+Bioconductorを使ったNGS解析2](http://togotv.dbcls.jp/20120926.html#p01)（二階堂愛さん：理化学研究所 発生・再生科学総合研究センター（当時））
+  - 統合TV：[Avadis NGS の使い方～導入編～](http://togotv.dbcls.jp/20110803.html#p01) … 商用ソフト
+  - 統合TV：[Avadis NGS の使い方～RNA-seq編～](http://togotv.dbcls.jp/20111124.html#p01) … 商用ソフト
+  - 統合TV：[CLC Workbench シリーズの使い方～導入方法編～](http://togotv.dbcls.jp/20110528.html#p01) … 別の商用ソフト
+  - （参考）統合TV：[[CLC Workbench シリーズの使い方 ～基本操作編～](http://togotv.dbcls.jp/20110627.html#p01) … 別の商用ソフト
+  - 統合TV：[CLC Genomics Workbench でショートリードのマッピングを行う](http://togotv.dbcls.jp/20110628.html#p01) … 別の商用ソフト
+  - [バイオインフォマティクス人材育成カリキュラム（次世代シークエンサ）速習コース](http://bit.ly/ngs2014) （NBDC＋東大アグリバイオ）… 2週間カンヅメにして、Linuxの使い方から実際の解析まで。統合TVでも収載
 
 
 
@@ -40,12 +42,13 @@ twitter: @chalkless
 - 言葉
   - 次世代シーケンサ
   - 次世代シーケンサー
+  - 次世代シークエンサー
   - 新型シーケンサ
   - New-generation Sequencing (NGS)
   - Next-generation Sequiencing (NGS)
   - 他にmassively parallel DNA sequencing とか...
   - → だんだん「新型」でも「次世代」でもなくなっていく。。。
-- → 最近は、 High-throughput DNA sequencing (technology) をよく使う印象（略語はNGSのまま）
+- → 最近は、 Massively Parallel DNA sequencing か、High-throughput DNA sequencing (technology) をよく使う印象（略語はNGSのまま）
 `例：High-throughput sequencing technology, also called Next-generation sequencing (NGS), ...`
 
 ## 何が新型／次世代なのか?
@@ -87,13 +90,11 @@ ABI PRISM&#174; 3100-Avant Genetic Analyzerより
 - 【実習】どのくらいのデータ量になるか考えてみましょう
   - ゲル板：750 (base/lane) × 48/4 lanes <span style="color: rgb(250, 250, 250)">= 9kbase</span>
   - キャピラリ：500 (base/lane) × 96 lane <span style="color: rgb(250, 250, 250)">= 48kbase</span>
-  - 次世代： 36 (base/seq) × 300M seq/run <span style="color: rgb(250, 250, 250)">= 10.8Gbase = 10,800,000kbase</span>
+  - 次世代： 2 × 300 (base/seq) × 25M seq/run <span style="color: rgb(250, 250, 250)">= 15Gbase = 15,000,000kbase</span>
+  - データ量の答えは計算式の右に白い字で書いてあるのでマウスでなぞってみるなどして確認してみてください
   - ↑これらの数字は規模感をつかむだけなので、ざっくりな数字になっています（1 runにかかる時間は比較してないですし）
   - ↑これらの数字は「塩基数」であって、シーケンサの出力である「画像データ」のデータサイズでないことに注意！
   - そして、その画像データはSRAには登録されていない
-  - [参考] 各シーケンサの性能比較
-    -http://bit.ly/ngsspecbydritoshi （二階堂さん@理研）
-    - http://dbcls.rois.ac.jp/~kawano/ng.html （河野さん@DBCLS）
 
 ## NGSの利用範囲
 - ゲノム、発現解析、メタゲノム解析、ChIP-Seq（転写因子解析）、SNP解析、...
@@ -114,7 +115,7 @@ ABI PRISM&#174; 3100-Avant Genetic Analyzerより
     - DDBJを見に行ったとして、入っているのは日本だけ、ということはない、ということです。
     - 個人情報にからむものは、実際の配列データはしかるべきところにしかない。（日本だとJGA。これの前のセクション参照）
 
-### NCBI SRAやめます事件(11/2/16 現地時間)
+### [参考] NCBI SRAやめます事件(11/2/16 現地時間)
 - [NCBI To Discontinue Sequence Read Archive and Peptidome](http://www.nlm.nih.gov/pubs/techbull/jf11/jf11_ncbi_reprint_sra.html)
   - 予算がなくなったのでやめます
   - 解析結果は受け付けます
@@ -126,6 +127,9 @@ ABI PRISM&#174; 3100-Avant Genetic Analyzerより
     - [DDBJ will continue Sequence Raw Data Archiving](http://www.ddbj.nig.ac.jp/whatsnew/2011/DRA20110222.html)
   - NCBI SRA（一応）続けられます宣言(11/5/9)
     - （とりあえず）[SRA Archive is still in service. (List of all News, Events and Notifications)](http://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=history)
+  - 発現系のデータは実験情報（メタデータ）だけがSRAで、実データはGEO（もともとマイクロアレイなどの発現データを集めたデータベース）に登録されることになるなど。
+    - GEOの使い方：http://motdb.dbcls.jp/?AJACS50%2Fhono
+    - SRAとGEOなど合わせて、発現情報をまとめたデータベースを製作中です：AOE http://aoe.dbcls.jp/
 
 ###【実習】DRASearchを使ってみる（ http://trace.ddbj.nig.ac.jp/DRASearch/ ）
 - こういうときはNCBIと思いがちですが、データ転送量が多い + インターフェースきれい なのでDDBJを使いましょう
@@ -255,16 +259,6 @@ ABI PRISM&#174; 3100-Avant Genetic Analyzerより
 - [登録サイト D-way](https://trace.ddbj.nig.ac.jp/D-way/)
 - [登録マニュアル by DDBJ](http://trace.ddbj.nig.ac.jp/dra/submission.shtml)
 - [チュートリアルムービー](http://trace.ddbj.nig.ac.jp/dra/index.shtml)
-
-
-
-
-
-# メモ
-- 必要なスペック
-- GEOなどの遺伝子発現DBについてもふれておくか
-
-
 
 
 ----
