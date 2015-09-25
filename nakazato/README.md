@@ -219,10 +219,10 @@ ABI PRISM&#174; 3100-Avant Genetic Analyzerより
  - 発現量の定量 ... cufflinks などを用いる
   - control に対してサンプル（KOした、疾患状態、...）の発現はどう違うか? ... cufflinks のうちcuffdiff
 
- `cuffdiff ensembl_gene.gtf  -o result SRR1294107.bam control.bam`  ←controlに対してSRR1294107での発現がどう違うか?
+    `cuffdiff ensembl_gene.gtf  -o result SRR1294107.bam control.bam`  ←controlに対してSRR1294107での発現がどう違うか?
 
-    - ここでensembl_gene.gtf にはトランスクリプトームの情報が含まれています（アノテーション情報）
-    - 転写単位ごとの発現量情報推定 ... cummeRbund （cufflinks の結果を解析するRパッケージ）
+  - ここでensembl_gene.gtf にはトランスクリプトームの情報が含まれています（アノテーション情報）
+  - 転写単位ごとの発現量情報推定 ... cummeRbund （cufflinks の結果を解析するRパッケージ）
   - 多分、ここまで行き着かないだろうので、二階堂さんがAJACSで話した内容の統合TVを参考にしてください： http://togotv.dbcls.jp/20120926.html#p01
 - その2：一からつなげる（De novo Assemble）
 
@@ -236,9 +236,10 @@ ABI PRISM&#174; 3100-Avant Genetic Analyzerより
 - その1で書いたマッピングするところまでは発現解析と同じです（FASTQ → SAM → BAM）
 - binding site予測 ... macs2 などを用いる
 
- `samtools sort   oct4.bam oct4.sort    ← 下準備：BAMファイルのソート
-  samtools index oct4.sort.bam           ← 下準備：インデックス作成
-  macs2 -t Oct4.bowtie.sort.rmRepeat.bam -c GFP.bowtie.sort.rmRepeat.bam -f BAM -g mm -n Oct4 -B -q 0.01`
+    
+    samtools sort   oct4.bam oct4.sort    ← 下準備：BAMファイルのソート
+    samtools index oct4.sort.bam           ← 下準備：インデックス作成
+    macs2 -t Oct4.bowtie.sort.rmRepeat.bam -c GFP.bowtie.sort.rmRepeat.bam -f BAM -g mm -n Oct4 -B -q 0.01
 
 - 高次解析に進みます
   - 今回は時間がないと思うので、二階堂さんがAJACSで話した内容の統合TVを参考にしてください： http://togotv.dbcls.jp/20120926.html#p01
