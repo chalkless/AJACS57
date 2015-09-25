@@ -196,7 +196,9 @@ ABI PRISM&#174; 3100-Avant Genetic Analyzerより
 
 ### Quality Control (QC)
 - 主にFastQCといったソフトが使われます http://www.bioinformatics.babraham.ac.uk/projects/fastqc/
+
  `fastqc -o SRR067385.qc -f fastq SRR067385.fastq`
+
 - DBCLS SRAではあらかじめFastQCをかけた結果を表示できるように随時、処理をしています（自分でやらなくてよい！）
   - 例： http://sra.dbcls.jp/search/view/SRR067385
 
@@ -204,15 +206,21 @@ ABI PRISM&#174; 3100-Avant Genetic Analyzerより
 - その1：既知のゲノムに貼る (Reference Genome Mapping)
   - QCの結果をもとに、使わない部分（使い物にならない部分）を除去する ... FASTX-Toolkit などを用いる
   - マッピング... tophat2、bowtie、bwa などを用いる（どれを使えばいいか? → 速度と精度、目的によって使い分けます）
+
  `bowtie2 -x hg19. -U SRR1294107.fastq > SRR1294107.sam`    ← SRR1294107 を hg19 に対してマッピングしてSAM形式で出力
+
     - FASTQ形式 → SAM形式
   - マッピング形式の可視化
     - 例：Integrative Genomics Viewer IGVを使い倒す　～マッピングデータを可視化する～ http://togotv.dbcls.jp/20140716.html#p01
   - SAM形式は必要に応じてバイナリ形式のBAM形式に変換して用います（逆にBAM形式を人間が読めるようにSAM形式にすることもある）
+
  `samtools view -Sb SRR1294107.sam -o SRR1294107.bam` （SAMからBAMへの変換）
+
  - 発現量の定量 ... cufflinks などを用いる
   - control に対してサンプル（KOした、疾患状態、...）の発現はどう違うか? ... cufflinks のうちcuffdiff
+
  `cuffdiff ensembl_gene.gtf  -o result SRR1294107.bam control.bam`  ←controlに対してSRR1294107での発現がどう違うか?
+
     - ここでensembl_gene.gtf にはトランスクリプトームの情報が含まれています（アノテーション情報）
     - 転写単位ごとの発現量情報推定 ... cummeRbund （cufflinks の結果を解析するRパッケージ）
   - 多分、ここまで行き着かないだろうので、二階堂さんがAJACSで話した内容の統合TVを参考にしてください： http://togotv.dbcls.jp/20120926.html#p01
@@ -227,9 +235,11 @@ ABI PRISM&#174; 3100-Avant Genetic Analyzerより
 ### 解析その2（ChIP-Seq、転写因子解析）
 - その1で書いたマッピングするところまでは発現解析と同じです（FASTQ → SAM → BAM）
 - binding site予測 ... macs2 などを用いる
- `samtools sort   oct4.bam oct4.sort`    ← 下準備：BAMファイルのソート
- `samtools index oct4.sort.bam`           ← 下準備：インデックス作成
- `macs2 -t Oct4.bowtie.sort.rmRepeat.bam -c GFP.bowtie.sort.rmRepeat.bam -f BAM -g mm -n Oct4 -B -q 0.01`
+
+ `samtools sort   oct4.bam oct4.sort    ← 下準備：BAMファイルのソート
+  samtools index oct4.sort.bam           ← 下準備：インデックス作成
+  macs2 -t Oct4.bowtie.sort.rmRepeat.bam -c GFP.bowtie.sort.rmRepeat.bam -f BAM -g mm -n Oct4 -B -q 0.01`
+
 - 高次解析に進みます
   - 今回は時間がないと思うので、二階堂さんがAJACSで話した内容の統合TVを参考にしてください： http://togotv.dbcls.jp/20120926.html#p01
 
